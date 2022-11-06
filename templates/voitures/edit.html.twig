@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification!{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+
+            <div class="card-header bg-light ">
+
+                <div style="float: left; col-6">
+                    <h3>Formulaire de modification d'un voiture</h3>
+                </div>
+
+                <div class="btn btn-dark" style="float: right; border-radius: 40px">
+                    <a href="{{ path('voiture_index')}}" class="btn btn-success" style="width:300px;">
+                        <i class="fas fa-long-arrow-alt-left"></i> Consulter la liste des voitures
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- Soumission du formulaire --->
+            <div class='container' style='width:1000px;'>
+                {{ form(formVoiture) }}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

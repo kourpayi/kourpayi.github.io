@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des voitures!{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-12">
+
+
+        <div class=" btn btn ">
+            <div style="float: left;">
+                <a href="{{ path('voiture_create')}}" class="btn btn-primary" style="width:300px;">
+                    Ajouter une nouvelle voiture
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Liste des voitures</h5>
+
+            <div class="table-responsive text-nowrap">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Couleur</th>
+                            <th>Numero chassi</th>
+                            <th>Nombre siège</th>
+                            <th>Année</th>
+                            <th>Kilometrage</th>
+                            <th>Marque</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table-border-bottom-0">
+
+                        {% for voiture in voitures %}
+                        <tr>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ voiture.id
+                                    }}</strong></td>
+                            <td>{{ voiture.couleur }}</td>
+                            <td>{{ voiture.numeroChassi }}</td>
+                            <td>{{ voiture.nombreSiege }}</td>
+                            <td>{{ voiture.annee }}</td>
+                            <td>{{ voiture.kilometrage }}</td>
+                            <td>{{ voiture.marque }}</td>
+
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+
+
+                                    <div class="dropdown-menu">
+
+
+
+
+                                        <a class="dropdown-item"
+                                            href="{{ path('voiture_edit', { id: voiture.id }) }}"><i
+                                                class="bx bx-edit-alt me-1"></i>Edit</a>
+
+
+                                        <a class="dropdown-item"
+                                            href="{{ path('voiture_delete', { id: voiture.id }) }}"><i
+                                                class="bx bx-trash me-1"></i>
+                                            Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
